@@ -6,8 +6,14 @@ struct node{
 };
 
 int main() {
+    struct node* myList = buildOneTwoThree();
 
+    std::cout << getListLength(myList);
 
+    push(&myList, 23);
+    push(&myList, 34);
+
+    std::cout << getListLength(myList);
 }
 
 int getListLength(struct node* current){
@@ -18,6 +24,15 @@ int getListLength(struct node* current){
         current = current->next;
     }
     return count;
+}
+
+void push(struct node** headReference, int data){
+
+    struct node* newNode = malloc(sizeof(node));
+
+    newNode->data = data;
+    newNode->next = *headReference;
+    *headReference = newNode;
 }
 
 
