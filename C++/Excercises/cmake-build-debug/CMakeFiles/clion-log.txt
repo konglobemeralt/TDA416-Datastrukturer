@@ -1,0 +1,4 @@
+/Applications/CLion.app/Contents/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/konglobemeralt/Documents/gitz/TDA416-Datastrukturer/C++/Excercises
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/konglobemeralt/Documents/gitz/TDA416-Datastrukturer/C++/Excercises/cmake-build-debug
