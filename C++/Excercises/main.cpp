@@ -10,7 +10,18 @@ int main() {
 
 }
 
-//Just some tests
+int getListLength(struct node* current){
+    int count = 0;
+
+    while(current != NULL){
+        count++;
+        current = current->next;
+    }
+    return count;
+}
+
+
+//Just a test list "1" -> "2" -> "3"
 struct node* buildOneTwoThree() {
     struct node* head = NULL;
     struct node* second = NULL;
