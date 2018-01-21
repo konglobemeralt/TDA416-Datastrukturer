@@ -1,3 +1,5 @@
+package AssignmentOne;
+
 import java.util.Arrays;
 
 import static java.util.Arrays.copyOfRange;
@@ -20,7 +22,7 @@ public class ExerciseOne {
         }
     }
 
-    public void runExcercise(){
+    public void runExercise(){
         int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
 
         System.out.println("Array before: " + Arrays.toString(array));
