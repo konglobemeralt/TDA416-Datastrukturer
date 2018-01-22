@@ -24,11 +24,20 @@ public class ExerciseTwo {
 
         String fileContent = readFile("src/AssignmentOne/text.txt", Charset.defaultCharset());
         fileContent = fileContent.toLowerCase().replaceAll("[^a-zåäö]", "");
-        System.out.println(fileContent);
+
+        System.out.format("%15s%15s%15s%n", "Character", "Occurences", "Frequency");
+        for(int i = 0; i < alphabet.length; i++){
+            //Length of total fileString - fileString med en char bortregexad.
+            System.out.format("%15s%15d%15f%n",
+                    Character.toString(alphabet[i]),
+                    fileContent.length() - fileContent.replace(Character.toString(alphabet[i]), "").length(),
+                    (fileContent.length() - fileContent.replace(Character.toString(alphabet[i]), "").length())/(double)fileContent.length());
+        }
+
+
        // try (InputStream in = new FileInputStream("src/AssignmentOne/text.txt");
        //      Reader reader = new InputStreamReader(in)) {
-//
-//
+       //
        //     int c;
        //     while ((c = reader.read()) != -1) {
        //         dealWithCharacter((char) c);
