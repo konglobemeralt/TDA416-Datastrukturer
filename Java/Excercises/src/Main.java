@@ -1,3 +1,4 @@
+import AssignmentOne.ExcerciseThree;
 import AssignmentOne.ExerciseOne;
 import AssignmentOne.ExerciseTwo;
 
@@ -12,13 +13,24 @@ public class Main{
        //ExerciseOne exOne = new ExerciseOne();
        //exOne.runExercise();
 
-        ExerciseTwo exTwo = new ExerciseTwo();
-        try{
-            exTwo.runExercise();
-        }
-        catch(IOException ex){
-           System.out.println("You done goofed");
-        }
+       //ExerciseTwo exTwo = new ExerciseTwo();
+       //try{
+       //    exTwo.runExercise();
+       //}
+       //catch(IOException ex){
+       //   System.out.println("You done goofed");
+       //}
 
-        }
+        ExcerciseThree exThree = new ExcerciseThree();
+        exThree.combineStrings("abcdefg", "123456");
+        exThree.combineStrings("abcdefg", "1");
+        exThree.combineStrings("a", "123456");
+        exThree.combineStrings("Test Test Test", "WWWWWWWW");
+
+        System.out.println(exThree.recursiveCombineStrings("abcdefg", "123456"));
+        System.out.println(exThree.recursiveCombineStrings("abcdefg", "1"));
+        System.out.println(exThree.recursiveCombineStrings("a", "123456"));
+        System.out.println(exThree.recursiveCombineStrings("Test Test Test", "WWWWWWWW"));
+
+    }
 }

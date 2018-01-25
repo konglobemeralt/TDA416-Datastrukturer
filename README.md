@@ -4,7 +4,7 @@ Work done inte the course TDA416
 
 ## Bookmarks
 
-Data Structures Abstraction and Design s.66
+Data Structures Abstraction and Design chap 2.
 
 ## Links to look at
 https://visualgo.net/en

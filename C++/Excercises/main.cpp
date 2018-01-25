@@ -5,17 +5,6 @@ struct node{
     struct node* next;
 };
 
-int main() {
-    struct node* myList = buildOneTwoThree();
-
-    std::cout << getListLength(myList);
-
-    push(&myList, 23);
-    push(&myList, 34);
-
-    std::cout << getListLength(myList);
-}
-
 int getListLength(struct node* current){
     int count = 0;
 
@@ -28,7 +17,7 @@ int getListLength(struct node* current){
 
 void push(struct node** headReference, int data){
 
-    struct node* newNode = malloc(sizeof(node));
+    struct node* newNode = (node*) malloc(sizeof(node));
 
     newNode->data = data;
     newNode->next = *headReference;
@@ -43,20 +32,32 @@ struct node* buildOneTwoThree() {
     struct node* third = NULL;
 
     //Allocate three nodes
-    head = malloc(sizeof(struct node));
-    second = malloc(sizeof(struct node));
-    third = malloc(sizeof(struct node));
+    head = (node*) malloc(sizeof(struct node));
+    second = (node*) malloc(sizeof(struct node));
+    third = (node*) malloc(sizeof(struct node));
 
     //Set up the nodes
     head->data = 1;
     head->next = second;
 
     second->data = 2;
-    second->next = second;
+    second->next = third;
 
     third->data = 3;
     third->next = NULL;
 
     //return start of nodes
     return head;
+}
+
+int main() {
+    struct node* myList = buildOneTwoThree();
+
+    std::cout << getListLength(myList) << std::endl;
+
+    push(&myList, 23);
+    push(&myList, 34);
+
+    std::cout << getListLength(myList)<< std::endl;
+    return 0;
 }
