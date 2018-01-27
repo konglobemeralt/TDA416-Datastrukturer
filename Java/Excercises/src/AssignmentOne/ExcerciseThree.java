@@ -10,7 +10,8 @@ public class ExcerciseThree {
         String newString = "";
 
         for(int i = 0; i < Math.min(a.length(), b.length()); i++){
-            newString += a.charAt(i); newString += b.charAt(i);
+            newString += a.charAt(i);
+            newString += b.charAt(i);
         }
 
         if( a.length() > b.length()){
