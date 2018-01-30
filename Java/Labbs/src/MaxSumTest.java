@@ -109,7 +109,7 @@ public class MaxSumTest {
     /**
      * Simple test program.
      */
-    public static void main( String [ ] args ) {
+    public static void notMain( String [ ] args ) {
         // =============================================================
         // things that can be changed
         // tests are done with arrays of size 64, 128, 256, ..., maxSizeOfArray
