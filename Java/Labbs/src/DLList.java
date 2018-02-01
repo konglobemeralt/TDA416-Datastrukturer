@@ -244,7 +244,13 @@ public class DLList {
 		}
 
 		while(k > q.size()){
-			q.remove(q.peek());
+			nodeL = q.peek().prev;
+			nodeP = q.peek();
+			nodeR = q.peek().next;
+
+			q.remove(nodeP);
+			nodeL.next = nodeR;
+			nodeR.prev = nodeL;
 			}
 
 
