@@ -19,7 +19,7 @@ import java.text.DecimalFormat;
 public class DLList {
 	
 	// 1.0E300 is almost infinity (approx. = Double.MAX_VALUE 
-	private static final double infinity = 1.0E300; 
+	private static final double infinity = 1.0E300;
 	//private DrawGraph shape;
 	private PriorityQueue <Node> q = new PriorityQueue<Node>();
 	
@@ -202,6 +202,21 @@ public class DLList {
 	*/
 	public void addLast(Point p) {
 		// TODO
+		if ( p == null ) {
+			throw new NullPointerException();
+		} else {
+			Node newNode = new Node(p, size);
+
+			if(tail == null && head == null){
+				head = newNode;
+			} else {
+				newNode.prev = tail;
+				tail.next = newNode;
+			}
+			tail = newNode;
+			q.add(newNode);
+			size++;
+		}
 	} // end addLast
 	// ============================================================
 	/**
