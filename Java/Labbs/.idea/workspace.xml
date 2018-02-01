@@ -74,8 +74,8 @@
       <file leaf-file-name="DLList.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/DLList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="241" column="13" lean-forward="true" selection-start-line="241" selection-start-column="13" selection-end-line="241" selection-end-column="13" />
+            <state relative-caret-position="119">
+              <caret line="244" column="0" lean-forward="false" selection-start-line="244" selection-start-column="0" selection-end-line="244" selection-end-column="0" />
               <folding>
                 <element signature="e#767#773#0" expanded="true" />
               </folding>
@@ -711,12 +711,12 @@
       <option name="presentableId" value="Default" />
       <updated>1516878613691</updated>
       <workItem from="1517306912522" duration="663000" />
-      <workItem from="1517488076512" duration="8226000" />
+      <workItem from="1517488076512" duration="8854000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8889000" />
+    <option name="totallyTimeSpent" value="9517000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="773" extended-state="6" />
@@ -942,8 +942,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DLList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="241" column="13" lean-forward="true" selection-start-line="241" selection-start-column="13" selection-end-line="241" selection-end-column="13" />
+        <state relative-caret-position="119">
+          <caret line="244" column="0" lean-forward="false" selection-start-line="244" selection-start-column="0" selection-end-line="244" selection-end-column="0" />
           <folding>
             <element signature="e#767#773#0" expanded="true" />
           </folding>

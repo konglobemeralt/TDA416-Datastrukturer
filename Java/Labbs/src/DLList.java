@@ -242,10 +242,9 @@ public class DLList {
 			}
 
 			Node nodeL = q.peek().prev;
-			Node nodeP = q.peek();
 			Node nodeR = q.peek().next;
 
-			q.remove(nodeP);
+			q.remove();
 			nodeL.next = nodeR;
 			nodeR.prev = nodeL;
 
