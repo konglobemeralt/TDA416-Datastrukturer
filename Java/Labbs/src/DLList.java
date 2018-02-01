@@ -207,9 +207,14 @@ public class DLList {
 		} else {
 			Node newNode = new Node(p, size);
 
-			if(tail == null && head == null){
+			if(tail == null){
 				head = newNode;
 			} else {
+				if(tail.prev != null) {
+					tail.imp = importanceOfP(tail.prev.p, tail.p, newNode.p);
+					q.remove(tail);
+					q.add(tail);
+				}
 				newNode.prev = tail;
 				tail.next = newNode;
 			}
@@ -231,27 +236,31 @@ public class DLList {
 			return;
 		}
 
-		Iterator<Node> iterator = q.iterator();
-		Node nodeL = iterator.next();
-		Node nodeP = iterator.next();
-		Node nodeR;
+		while(k < q.size()){
+			if(q.size() == 0){
+				throw new NoSuchElementException();
+			}
 
-		while(iterator.hasNext()) {
-			nodeR = iterator.next();
-			nodeP.imp = importanceOfP(nodeL.p, nodeP.p, nodeR.p);
-			nodeL = nodeP;
-			nodeP = nodeR;
-		}
-
-		while(k > q.size()){
-			nodeL = q.peek().prev;
-			nodeP = q.peek();
-			nodeR = q.peek().next;
+			Node nodeL = q.peek().prev;
+			Node nodeP = q.peek();
+			Node nodeR = q.peek().next;
 
 			q.remove(nodeP);
 			nodeL.next = nodeR;
 			nodeR.prev = nodeL;
+
+			if(nodeL.prev != null){
+				nodeL.imp = importanceOfP(nodeL.prev.p, nodeL.p, nodeL.next.p);
+				q.remove(nodeL);
+				q.add(nodeL);
 			}
+			if(nodeR.next != null){
+				nodeR.imp = importanceOfP(nodeR.prev.p, nodeR.p, nodeR.next.p);
+				q.remove(nodeR);
+				q.add(nodeR);
+			}
+
+		}
 
 
 		// Calculates the initial important measure for all nodes.
