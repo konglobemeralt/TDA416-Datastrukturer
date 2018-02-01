@@ -226,6 +226,28 @@ public class DLList {
 	*/
 	public void reduceListToKElements(int k) {
 		// TODO
+		if(q.size() < 3){
+			System.out.println("List to small to reduce...");
+			return;
+		}
+
+		Iterator<Node> iterator = q.iterator();
+		Node nodeL = iterator.next();
+		Node nodeP = iterator.next();
+		Node nodeR;
+
+		while(iterator.hasNext()) {
+			nodeR = iterator.next();
+			nodeP.imp = importanceOfP(nodeL.p, nodeP.p, nodeR.p);
+			nodeL = nodeP;
+			nodeP = nodeR;
+		}
+
+		while(k > q.size()){
+			q.remove(q.peek());
+			}
+
+
 		// Calculates the initial important measure for all nodes.
 		// Assume there are at least 3 nodes otherwise it's all meaningless.
 		
