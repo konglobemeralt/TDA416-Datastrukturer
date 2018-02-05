@@ -2,62 +2,27 @@
 
 struct node{
     int data;
-    struct node* next;
+    node *left;
+    node *right;
 };
 
-int getListLength(struct node* current){
-    int count = 0;
 
-    while(current != NULL){
-        count++;
-        current = current->next;
+/*
+ Given a binary tree, return true if a node
+ with the target data is found in the tree.
+*/
+static int lookup(struct node* node, int target) {
+    // 1. Base case == empty tree
+    // in that case, the target is not found so return false
+    if (node == NULL) {
+        return(false);
     }
-    return count;
-}
-
-void push(struct node** headReference, int data){
-
-    struct node* newNode = (node*) malloc(sizeof(node));
-
-    newNode->data = data;
-    newNode->next = *headReference;
-    *headReference = newNode;
-}
-
-
-//Just a test list "1" -> "2" -> "3"
-struct node* buildOneTwoThree() {
-    struct node* head = NULL;
-    struct node* second = NULL;
-    struct node* third = NULL;
-
-    //Allocate three nodes
-    head = (node*) malloc(sizeof(struct node));
-    second = (node*) malloc(sizeof(struct node));
-    third = (node*) malloc(sizeof(struct node));
-
-    //Set up the nodes
-    head->data = 1;
-    head->next = second;
-
-    second->data = 2;
-    second->next = third;
-
-    third->data = 3;
-    third->next = NULL;
-
-    //return start of nodes
-    return head;
-}
-
-int main() {
-    struct node* myList = buildOneTwoThree();
-
-    std::cout << getListLength(myList) << std::endl;
-
-    push(&myList, 23);
-    push(&myList, 34);
-
-    std::cout << getListLength(myList)<< std::endl;
-    return 0;
+    else {
+        // 2. see if found here
+        if (target == node->data) return(true);
+        else {
+            // 3. otherwise recur down the correct subtree
+            if (target < node->data) return(lookup(node->left, target));
+            else return(lookup(node->right, target));
+        } }
 }

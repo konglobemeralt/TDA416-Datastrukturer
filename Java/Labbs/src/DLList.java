@@ -201,7 +201,6 @@ public class DLList {
 	* @throws NullPointerException if p==null
 	*/
 	public void addLast(Point p) {
-		// TODO
 		if ( p == null ) {
 			throw new NullPointerException();
 		} else {
