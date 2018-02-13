@@ -7,9 +7,9 @@
 
 public class SLCWithGet<E extends Comparable<? super E>> extends LinkedCollection<E> implements CollectionWithGet<E> {
 
-    public SLCWithGet() {
-        super();
-    }
+
+
+
 
     /**
      * Add the element into the list at first proper empty place

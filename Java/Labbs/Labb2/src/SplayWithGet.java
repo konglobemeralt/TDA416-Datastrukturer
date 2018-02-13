@@ -4,6 +4,72 @@
 public class SplayWithGet<E extends Comparable<? super E>>
         extends BinarySearchTree<E> {
 
+
+    private void splay(E x){
+
+        while(root.element.compareTo(x) != 0 ){
+            Entry grandParent = null;
+            Entry parent = null;
+            Entry child = root;
+
+            //TODO: Null checks
+            while(child.element.compareTo(x) != 0 && child != null) {
+                grandParent = parent;
+                parent = child;
+
+                if(child.element.compareTo(x) < 0){
+                    child = child.left;
+                }
+                else{
+                    child = child.right;
+                }
+            }
+
+            if(grandParent == null){
+                if(parent.left == child){
+                    zag(child);
+                }
+                else{
+                    zig(child);
+                }
+            }
+
+            else if(grandParent.left == parent && parent.left == child){
+                zigZig(child); //Todo: fix Right Right
+            }
+
+            else if(grandParent.right == parent && parent.left == child){
+                zigZag(child); //Todo: fix Right-Left rotation
+            }
+
+            else if(grandParent.right == parent && parent.right == child){
+                zigZig(child); //Todo: fix Left Left
+            }
+
+            else if(grandParent.left == parent && parent.right == child){
+                zigZag(child); //Todo: Left-right rotation
+            }
+
+
+
+        }
+
+
+    }
+
+
+
+
+
+    private void zigZig(Entry x){
+        //Find grandparent of x
+        //Rotate x grandparent to the left
+        //
+    }
+    private void zagZag(Entry x){
+
+    }
+
     // ========== ========== ========== ==========
 
     /* Rotera 1 steg i hogervarv, dvs
@@ -27,7 +93,8 @@ public class SplayWithGet<E extends Comparable<? super E>>
             y.right.parent = y;
         x.right = y;
 
-    } //   rotateRight
+    }
+    //   rotateRight
     // ========== ========== ========== ==========
 
     /* Rotera 1 steg i vanstervarv, dvs
@@ -50,7 +117,8 @@ public class SplayWithGet<E extends Comparable<? super E>>
         if (y.left != null)
             y.left.parent = y;
         x.left = y;
-    } //   rotateLeft
+    }
+    //   rotateLeft
     // ========== ========== ========== ==========
 
     /* Rotera 2 steg i hogervarv, dvs
@@ -105,7 +173,8 @@ public class SplayWithGet<E extends Comparable<? super E>>
             z.left.parent = z;
         x.left = z;
         z.parent = x;
-    } //  doubleRotateLeft
+    }
+    //  doubleRotateLeft
     // ========== ========== ========== ==========
-}  //  class AVL_Tree
+}
 
