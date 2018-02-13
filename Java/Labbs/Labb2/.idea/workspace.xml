@@ -16,17 +16,20 @@
       <file leaf-file-name="TestFrame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TestFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="121">
-              <caret line="31" column="2" lean-forward="true" selection-start-line="31" selection-start-column="2" selection-end-line="31" selection-end-column="2" />
+            <state relative-caret-position="127">
+              <caret line="192" column="37" lean-forward="false" selection-start-line="192" selection-start-column="37" selection-end-line="192" selection-end-column="37" />
               <folding>
-                <element signature="e#1275#1331#0" expanded="true" />
-                <element signature="e#1370#1426#0" expanded="true" />
-                <element signature="e#1463#1519#0" expanded="true" />
-                <element signature="e#1556#1612#0" expanded="true" />
-                <element signature="e#2121#2143#0" expanded="true" />
-                <element signature="e#2194#2216#0" expanded="true" />
-                <element signature="e#2269#2291#0" expanded="true" />
-                <element signature="e#2340#2362#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#1245#1301#0" expanded="true" />
+                <element signature="e#1341#1397#0" expanded="true" />
+                <element signature="e#1435#1491#0" expanded="true" />
+                <element signature="e#1529#1585#0" expanded="true" />
+                <element signature="e#2095#2117#0" expanded="true" />
+                <element signature="e#2169#2191#0" expanded="true" />
+                <element signature="e#2242#2264#0" expanded="true" />
+                <element signature="e#2314#2336#0" expanded="true" />
+                <element signature="e#8580#8581#0" expanded="true" />
+                <element signature="e#8602#8603#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -46,7 +49,7 @@
         <entry file="file://$PROJECT_DIR$/src/SLCWithGet.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-58">
-              <caret line="16" column="28" lean-forward="true" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+              <caret line="16" column="28" lean-forward="false" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -55,8 +58,18 @@
       <file leaf-file-name="SplayWithGet.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/SplayWithGet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="44" lean-forward="false" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
+            <state relative-caret-position="15">
+              <caret line="18" column="20" lean-forward="true" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestFrame.class" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/TestFrame.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -86,7 +99,7 @@
         <entry file="file://$PROJECT_DIR$/src/BinarySearchTree.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1253">
-              <caret line="89" column="0" lean-forward="true" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+              <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -106,7 +119,7 @@
         <entry file="file://$PROJECT_DIR$/src/LinkedCollection.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="46">
-              <caret line="71" column="55" lean-forward="true" selection-start-line="71" selection-start-column="55" selection-end-line="71" selection-end-column="55" />
+              <caret line="71" column="55" lean-forward="false" selection-start-line="71" selection-start-column="55" selection-end-line="71" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -124,6 +137,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>get</find>
+      <find>no Colle</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -134,8 +148,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/TestFrame.java" />
         <option value="$PROJECT_DIR$/src/SLCWithGet.java" />
+        <option value="$PROJECT_DIR$/src/TestFrame.class" />
+        <option value="$PROJECT_DIR$/src/TestFrame.java" />
         <option value="$PROJECT_DIR$/src/SplayWithGet.java" />
       </list>
     </option>
@@ -604,6 +619,11 @@
     <list size="1">
       <item index="0" class="java.lang.String" itemvalue="Application.Main" />
     </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -617,12 +637,12 @@
       <updated>1517868244397</updated>
       <workItem from="1517868249013" duration="205000" />
       <workItem from="1517908682669" duration="56000" />
-      <workItem from="1518093090496" duration="11814000" />
+      <workItem from="1518093090496" duration="12606000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12075000" />
+    <option name="totallyTimeSpent" value="12867000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="23" width="1266" height="773" extended-state="0" />
@@ -632,12 +652,13 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32892805" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32892805" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -679,14 +700,17 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1275#1331#0" expanded="true" />
-            <element signature="e#1370#1426#0" expanded="true" />
-            <element signature="e#1463#1519#0" expanded="true" />
-            <element signature="e#1556#1612#0" expanded="true" />
-            <element signature="e#2121#2143#0" expanded="true" />
-            <element signature="e#2194#2216#0" expanded="true" />
-            <element signature="e#2269#2291#0" expanded="true" />
-            <element signature="e#2340#2362#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1245#1301#0" expanded="true" />
+            <element signature="e#1341#1397#0" expanded="true" />
+            <element signature="e#1435#1491#0" expanded="true" />
+            <element signature="e#1529#1585#0" expanded="true" />
+            <element signature="e#2095#2117#0" expanded="true" />
+            <element signature="e#2169#2191#0" expanded="true" />
+            <element signature="e#2242#2264#0" expanded="true" />
+            <element signature="e#2314#2336#0" expanded="true" />
+            <element signature="e#8580#8581#0" expanded="true" />
+            <element signature="e#8602#8603#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -695,7 +719,7 @@
     <entry file="file://$PROJECT_DIR$/src/LinkedCollection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
-          <caret line="71" column="55" lean-forward="true" selection-start-line="71" selection-start-column="55" selection-end-line="71" selection-end-column="55" />
+          <caret line="71" column="55" lean-forward="false" selection-start-line="71" selection-start-column="55" selection-end-line="71" selection-end-column="55" />
           <folding />
         </state>
       </provider>
@@ -719,25 +743,8 @@
     <entry file="file://$PROJECT_DIR$/src/SLCWithGet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-58">
-          <caret line="16" column="28" lean-forward="true" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+          <caret line="16" column="28" lean-forward="false" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TestFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="31" column="2" lean-forward="true" selection-start-line="31" selection-start-column="2" selection-end-line="31" selection-end-column="2" />
-          <folding>
-            <element signature="e#1275#1331#0" expanded="true" />
-            <element signature="e#1370#1426#0" expanded="true" />
-            <element signature="e#1463#1519#0" expanded="true" />
-            <element signature="e#1556#1612#0" expanded="true" />
-            <element signature="e#2121#2143#0" expanded="true" />
-            <element signature="e#2194#2216#0" expanded="true" />
-            <element signature="e#2269#2291#0" expanded="true" />
-            <element signature="e#2340#2362#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -760,15 +767,43 @@
     <entry file="file://$PROJECT_DIR$/src/BinarySearchTree.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1253">
-          <caret line="89" column="0" lean-forward="true" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+          <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TestFrame.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TestFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="192" column="37" lean-forward="false" selection-start-line="192" selection-start-column="37" selection-end-line="192" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1245#1301#0" expanded="true" />
+            <element signature="e#1341#1397#0" expanded="true" />
+            <element signature="e#1435#1491#0" expanded="true" />
+            <element signature="e#1529#1585#0" expanded="true" />
+            <element signature="e#2095#2117#0" expanded="true" />
+            <element signature="e#2169#2191#0" expanded="true" />
+            <element signature="e#2242#2264#0" expanded="true" />
+            <element signature="e#2314#2336#0" expanded="true" />
+            <element signature="e#8580#8581#0" expanded="true" />
+            <element signature="e#8602#8603#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/SplayWithGet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="44" lean-forward="false" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
+        <state relative-caret-position="15">
+          <caret line="18" column="20" lean-forward="true" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
           <folding />
         </state>
       </provider>

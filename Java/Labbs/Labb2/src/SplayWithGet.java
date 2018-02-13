@@ -9,7 +9,9 @@ public class SplayWithGet<E extends Comparable<? super E>>
         Entry x = find(e, root);
 
         // TODO Null check
-
+        if(x == null){
+            return null;
+        }
         splay(x);
         return x.element;
     }
@@ -27,10 +29,10 @@ public class SplayWithGet<E extends Comparable<? super E>>
 
             if(grandParent == null){
                 if(parent.left == x){
-                    zag(x);
+                    zag(parent);
                 }
                 else{
-                    zig(x);
+                    zig(parent);
                 }
             }
 
@@ -69,12 +71,12 @@ public class SplayWithGet<E extends Comparable<? super E>>
 
 
     private void zigZag(Entry x){
-        zig(x);
-        zag(x);
+        zig(x.parent);
+        zag(x.parent);
     }
     private void zagZig(Entry x){
-        zag(x);
-        zig(x);
+        zag(x.parent);
+        zig(x.parent);
     }
 
     // ========== ========== ========== ==========
