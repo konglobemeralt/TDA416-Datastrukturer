@@ -2,8 +2,17 @@
  * Created by konglobemeralt on 2018-02-13.
  */
 public class SplayWithGet<E extends Comparable<? super E>>
-        extends BinarySearchTree<E> {
+        extends BinarySearchTree<E> implements CollectionWithGet<E>{
 
+    @Override
+    public E get(E e) {
+        Entry x = find(e, root);
+
+        // TODO Null check
+
+        splay(x);
+        return x.element;
+    }
 
     private void splay(Entry x){
 
@@ -29,19 +38,19 @@ public class SplayWithGet<E extends Comparable<? super E>>
             //zag is Left
 
             else if(grandParent.left == parent && parent.left == x){
-                zigZig(grandParent); //Todo: fix Right Right
+                zigZig(x); //Todo: fix Right Right
             }
 
             else if(grandParent.right == parent && parent.left == x){
-                zagZig(grandParent); //Todo: fix Right-Left rotation
+                zagZig(x); //Todo: fix Right-Left rotation
             }
 
             else if(grandParent.right == parent && parent.right == x){
-                zagZag(grandParent); //Todo: fix Left Left
+                zagZag(x); //Todo: fix Left Left
             }
 
             else if(grandParent.left == parent && parent.right == x){
-                zigZag(grandParent); //Todo: Left-right rotation
+                zigZag(x); //Todo: Left-right rotation
             }
             else{
                 System.out.println("Error... :( ");
@@ -60,12 +69,12 @@ public class SplayWithGet<E extends Comparable<? super E>>
 
 
     private void zigZag(Entry x){
-        //Find grandparent of x
-        //Rotate x grandparent to the left
-        //
+        zig(x);
+        zag(x);
     }
     private void zagZig(Entry x){
-
+        zag(x);
+        zig(x);
     }
 
     // ========== ========== ========== ==========
