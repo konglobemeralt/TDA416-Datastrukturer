@@ -59,12 +59,12 @@ public class SplayWithGet<E extends Comparable<? super E>>
 
 
 
-    private void zigZig(Entry x){
+    private void zigZag(Entry x){
         //Find grandparent of x
         //Rotate x grandparent to the left
         //
     }
-    private void zagZag(Entry x){
+    private void zagZig(Entry x){
 
     }
 
@@ -128,7 +128,7 @@ public class SplayWithGet<E extends Comparable<? super E>>
              / \
             B   C
     */
-    private void zigZag(Entry x) {
+    private void zigZig(Entry x) {
         Entry y = x.left,
                 z = x.left.right;
         E e = x.element;
@@ -156,7 +156,7 @@ public class SplayWithGet<E extends Comparable<? super E>>
               / \
              B   C
      */
-    private void zagZig(Entry x) {
+    private void zagZag(Entry x) {
         Entry y = x.right,
                 z = x.right.left;
         E e = x.element;
