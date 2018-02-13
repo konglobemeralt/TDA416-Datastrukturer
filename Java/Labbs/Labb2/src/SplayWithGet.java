@@ -5,49 +5,47 @@ public class SplayWithGet<E extends Comparable<? super E>>
         extends BinarySearchTree<E> {
 
 
-    private void splay(E x){
+    private void splay(Entry x){
 
-        while(root.element.compareTo(x) != 0 ){
+        //Todo: Node has parent. Change logic
+        while(root.element.compareTo(x.element) != 0 ){
             Entry grandParent = null;
-            Entry parent = null;
-            Entry child = root;
+            Entry parent = x.parent;
 
-            //TODO: Null checks
-            while(child.element.compareTo(x) != 0 && child != null) {
-                grandParent = parent;
-                parent = child;
-
-                if(child.element.compareTo(x) < 0){
-                    child = child.left;
-                }
-                else{
-                    child = child.right;
-                }
+            if(x.parent != null){
+                grandParent = parent.parent;
             }
 
             if(grandParent == null){
-                if(parent.left == child){
-                    zag(child);
+                if(parent.left == x){
+                    zag(x);
                 }
                 else{
-                    zig(child);
+                    zig(x);
                 }
             }
 
-            else if(grandParent.left == parent && parent.left == child){
-                zigZig(child); //Todo: fix Right Right
+            //zig is Right
+            //zag is Left
+
+            else if(grandParent.left == parent && parent.left == x){
+                zigZig(grandParent); //Todo: fix Right Right
             }
 
-            else if(grandParent.right == parent && parent.left == child){
-                zigZag(child); //Todo: fix Right-Left rotation
+            else if(grandParent.right == parent && parent.left == x){
+                zagZig(grandParent); //Todo: fix Right-Left rotation
             }
 
-            else if(grandParent.right == parent && parent.right == child){
-                zigZig(child); //Todo: fix Left Left
+            else if(grandParent.right == parent && parent.right == x){
+                zagZag(grandParent); //Todo: fix Left Left
             }
 
-            else if(grandParent.left == parent && parent.right == child){
-                zigZag(child); //Todo: Left-right rotation
+            else if(grandParent.left == parent && parent.right == x){
+                zigZag(grandParent); //Todo: Left-right rotation
+            }
+            else{
+                System.out.println("Error... :( ");
+                return;
             }
 
 
