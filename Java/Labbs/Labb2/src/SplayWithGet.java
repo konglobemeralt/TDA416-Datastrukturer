@@ -19,20 +19,21 @@ public class SplayWithGet<E extends Comparable<? super E>>
     private void splay(Entry x){
 
         //Todo: Node has parent. Change logic
-        while(root.element.compareTo(x.element) != 0 ){
-            Entry grandParent = null;
+        while( x.parent != null ){
+            System.out.println("Trying to place " + x.element.toString() + " where head is" + x.parent.toString());
             Entry parent = x.parent;
+            Entry grandParent = parent.parent;
 
-            if(x.parent != null){
-                grandParent = parent.parent;
-            }
 
             if(grandParent == null){
-                if(parent.left == x){
-                    zag(parent);
+                if(parent.right != null && parent.right.element.compareTo(x.element) == 0){
+                    zag(x.parent);
+                    //System.out.println("zag");
                 }
                 else{
-                    zig(parent);
+                    zig(x.parent);
+                    //System.out.println("zig");
+
                 }
             }
 
@@ -40,28 +41,32 @@ public class SplayWithGet<E extends Comparable<? super E>>
             //zag is Left
 
             else if(grandParent.left == parent && parent.left == x){
+                System.out.println("ZigZag");
                 zigZig(x); //Todo: fix Right Right
             }
 
             else if(grandParent.right == parent && parent.left == x){
-                zagZig(x); //Todo: fix Right-Left rotation
+                System.out.println("zigZag");
+                zigZag(x); //Todo: fix Right-Left rotation
             }
 
             else if(grandParent.right == parent && parent.right == x){
+                System.out.println("zagZag");
                 zagZag(x); //Todo: fix Left Left
             }
 
             else if(grandParent.left == parent && parent.right == x){
-                zigZag(x); //Todo: Left-right rotation
+                System.out.println("zagZig");
+                zagZig(x); //Todo: Left-right rotation
             }
             else{
                 System.out.println("Error... :( ");
                 return;
             }
 
-
-
         }
+        root = x;
+        System.out.println("Done");
 
 
     }
@@ -88,7 +93,7 @@ public class SplayWithGet<E extends Comparable<? super E>>
            / \                    / \
           A   B                  B   C
     */
-    private void zag(Entry x) {
+    private void zig(Entry x) {
         Entry y = x.left;
         E temp = x.element;
         x.element = y.element;
@@ -113,7 +118,7 @@ public class SplayWithGet<E extends Comparable<? super E>>
                / \            / \
               B   C          A   B
     */
-    private void zig(Entry x) {
+    private void zag(Entry x) {
         Entry y = x.right;
         E temp = x.element;
         x.element = y.element;
