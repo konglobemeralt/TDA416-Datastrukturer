@@ -40,7 +40,8 @@ public class SLCWithGet<E extends Comparable<? super E>> extends LinkedCollectio
      * Finds the parent of
      *
      * @param element the element to find the parent of
-     * @returns The parent of the element
+     * @returns The parent of the element,
+     *          if element not found it returns the closest matching parent
      */
     Entry findParent(E element) {
 
@@ -48,7 +49,6 @@ public class SLCWithGet<E extends Comparable<? super E>> extends LinkedCollectio
         Entry prev = null;
 
         while (pointer != null) {
-
             if (element.compareTo(pointer.element) <= 0) {
                 return prev;
             }

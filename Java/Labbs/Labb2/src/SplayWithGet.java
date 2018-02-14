@@ -1,6 +1,8 @@
 /**
  * Created by konglobemeralt on 2018-02-13.
+ * Good websites: http://btechsmartclass.com/DS/U5_T5.html and http://yaikhom.com/2014/05/12/understanding-splay-tree-rotations.html
  */
+
 public class SplayWithGet<E extends Comparable<? super E>>
         extends BinarySearchTree<E> implements CollectionWithGet<E>{
 
