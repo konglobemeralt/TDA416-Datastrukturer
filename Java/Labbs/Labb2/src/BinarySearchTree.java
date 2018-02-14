@@ -426,7 +426,7 @@ public class BinarySearchTree<E extends Comparable<? super E>>
 			// true => each row of the tree start to the left,
 			// use for big trees and if tree content is long like a list
 			// false => root in the middle, max depth 5-6 or so
-		boolean debug = false;	// true => printout with position like < 2+ 4+120>
+		boolean debug = true;	// true => printout with position like < 2+ 4+120>
 								// which is an entry on depth 2 and "column" 4 in the tree
 								// false => printout like <120>
 		// ========= ========= ========= ========= ========= =========
