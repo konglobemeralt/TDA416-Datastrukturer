@@ -49,7 +49,7 @@ public class SLCWithGet<E extends Comparable<? super E>> extends LinkedCollectio
 
         while (pointer != null) {
 
-            if (element.compareTo(pointer.element) < 0 || element.compareTo(pointer.element) == 0) {
+            if (element.compareTo(pointer.element) <= 0) {
                 return prev;
             }
             prev = pointer;
