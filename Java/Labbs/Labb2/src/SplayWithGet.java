@@ -5,6 +5,25 @@ public class SplayWithGet<E extends Comparable<? super E>>
         extends BinarySearchTree<E> implements CollectionWithGet<E>{
 
     @Override
+    public boolean add(E element) {
+        Entry newRoot = new Entry(element, null);
+        if(root == null) {
+            root = newRoot;
+            return true;
+        }
+
+        // TODO do something if they are the same element?
+        if(element.compareTo(root.element) > 0) {
+            newRoot.left = root;
+        } else {
+            newRoot.right = root;
+        }
+        root.parent = newRoot;
+        root = newRoot;
+        return true;
+    }
+
+    @Override
     public E get(E e) {
         Entry x = find(e, root);
 
