@@ -32,14 +32,24 @@ public class SplayWithGet<E extends Comparable<? super E>>
 
     @Override
     public E get(E e) {
+        if(e == null) {
+            return null;
+        }
         Entry x = find(e, root);
 
-        // TODO Null check
         if(x == null){
             return null;
         }
+
+        E xElement = x.element;
+
         splay(x);
-        return x.element;
+
+        if(e.compareTo(xElement) != 0) {
+            return null;
+        }
+
+        return xElement;
     }
 
     private void splay(Entry x){

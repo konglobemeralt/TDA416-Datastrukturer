@@ -413,10 +413,10 @@ public class BinarySearchTree<E extends Comparable<? super E>>
 		// ========= ========= ========= ========= ========= =========
 		// ************ ADJUST to your preferences ************
 		// a state variable that determine what kind of printout is returned
-		boolean simple = true; 		// true => style is [ 1 2 3 4 5 6 ]
+		boolean simple = false; 		// true => style is [ 1 2 3 4 5 6 ]
 									// i.e. only content in preorder, no shape
 									// false => trye value of preorder
-		boolean preorder = true;	// true => preorder, 
+		boolean preorder = false;	// true => preorder,
 									// false => bfs order
 									// see documentation below
 		// leftBalance and debug only work on bfs 
@@ -426,7 +426,7 @@ public class BinarySearchTree<E extends Comparable<? super E>>
 			// true => each row of the tree start to the left,
 			// use for big trees and if tree content is long like a list
 			// false => root in the middle, max depth 5-6 or so
-		boolean debug = true;	// true => printout with position like < 2+ 4+120>
+		boolean debug = false;	// true => printout with position like < 2+ 4+120>
 								// which is an entry on depth 2 and "column" 4 in the tree
 								// false => printout like <120>
 		// ========= ========= ========= ========= ========= =========
