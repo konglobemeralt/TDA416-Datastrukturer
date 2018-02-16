@@ -1,12 +1,25 @@
 /**
- * Created by konglobemeralt on 2018-02-13.
- * Good websites: http://btechsmartclass.com/DS/U5_T5.html and http://yaikhom.com/2014/05/12/understanding-splay-tree-rotations.html
+ * Created by konglobemeralt and isZumpo on 2018-02-08.
+ *
+ * @version (2018)
+ * @authors (Jesper Blidkvist, Hampus Carlsson)
  */
 
 public class SplayWithGet<E extends Comparable<? super E>>
         extends BinarySearchTree<E> implements CollectionWithGet<E>{
 
-
+    /**
+     * Find the first occurence of an element
+     * in the collection that is equal to the argument
+     * <tt>e</tt> with respect to its natural order.
+     * I.e. <tt>e.compateTo(element)</tt> is 0.
+     *
+     * @param e The dummy element to compare to.
+     * @return An element  <tt>e'</tt> in the collection
+     * satisfying <tt>e.compareTo(e') == 0</tt>.
+     * If no element is found, <tt>null</tt> the parent is
+     * returned
+     */
     @Override
     protected Entry find( E elem, Entry t ) {
         if ( t == null )
@@ -30,6 +43,18 @@ public class SplayWithGet<E extends Comparable<? super E>>
         }
     }  //   find
 
+
+    /**
+     * Find the first occurence of an element
+     * in the collection that is equal to the argument
+     * <tt>e</tt> with respect to its natural order.
+     * I.e. <tt>e.compateTo(element)</tt> is 0.
+     *
+     * @param e The dummy element to compare to.
+     * @return An element  <tt>e'</tt> in the collection
+     * satisfying <tt>e.compareTo(e') == 0</tt>.
+     * If no element is found, <tt>null</tt> is returned
+     */
     @Override
     public E get(E e) {
         if(e == null) {
@@ -52,6 +77,9 @@ public class SplayWithGet<E extends Comparable<? super E>>
         return xElement;
     }
 
+    /**
+     * @param x Entry to splay
+     */
     private void splay(Entry x){
         while( x.parent != null ){
             Entry parent = x.parent;
@@ -102,10 +130,16 @@ public class SplayWithGet<E extends Comparable<? super E>>
         root = x;
     }
 
+    /**
+     * @param x Entry to zigZag
+     */
     private void zigZig(Entry x){
         zig(x.parent.parent);
         zig(x.parent);
     }
+    /**
+     * @param x Entry to zagZag
+     */
     private void zagZag(Entry x){
         zag(x.parent.parent);
         zag(x.parent);
@@ -120,6 +154,9 @@ public class SplayWithGet<E extends Comparable<? super E>>
            / \                    / \
           A   B                  B   C
     */
+    /**
+     * @param x Entry to zig
+     */
     private void zig(Entry x) {
         Entry y = x.left;
         E temp = x.element;
@@ -145,6 +182,9 @@ public class SplayWithGet<E extends Comparable<? super E>>
                / \            / \
               B   C          A   B
     */
+    /**
+     * @param x Entry to zag
+     */
     private void zag(Entry x) {
         Entry y = x.right;
         E temp = x.element;
@@ -171,6 +211,9 @@ public class SplayWithGet<E extends Comparable<? super E>>
              / \
             B   C
     */
+    /**
+     * @param x Entry to zagZig
+     */
     private void zagZig(Entry x) {
         Entry y = x.left,
                 z = x.left.right;
@@ -198,6 +241,9 @@ public class SplayWithGet<E extends Comparable<? super E>>
                z   D          A   B C   D
               / \
              B   C
+     */
+    /**
+     * @param x Entry to zigZag
      */
     private void zigZag(Entry x) {
         Entry y = x.right,
