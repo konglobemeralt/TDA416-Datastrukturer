@@ -14,7 +14,7 @@ public class SplayWithGet<E extends Comparable<? super E>>
      * <tt>e</tt> with respect to its natural order.
      * I.e. <tt>e.compateTo(element)</tt> is 0.
      *
-     * @param e The dummy element to compare to.
+     * @param elem The dummy element to compare to.
      * @return An element  <tt>e'</tt> in the collection
      * satisfying <tt>e.compareTo(e') == 0</tt>.
      * If no element is found, <tt>null</tt> the parent is
@@ -99,26 +99,22 @@ public class SplayWithGet<E extends Comparable<? super E>>
                 }
             }
             else if(grandParent.left == parent && parent.left == x){
-                System.out.println("zigZig");
-                zigZig(x); //Todo: fix Right Right
+                zigZig(grandParent);
                 x = grandParent;
             }
 
             else if(grandParent.right == parent && parent.left == x){
-                System.out.println("zigZag");
-                zigZag(grandParent); //Todo: fix Right-Left rotation
+                zigZag(grandParent);
                 x = grandParent;
             }
 
             else if(grandParent.right == parent && parent.right == x){
-                System.out.println("zagZag");
-                zagZag(x); //Todo: fix Left Left
+                zagZag(grandParent);
                 x = grandParent;
             }
 
             else if(grandParent.left == parent && parent.right == x){
-                System.out.println("zagZig");
-                zagZig(grandParent); //Todo: Left-right rotation
+                zagZig(grandParent);
                 x = grandParent;
             }
             else{
@@ -131,18 +127,72 @@ public class SplayWithGet<E extends Comparable<? super E>>
     }
 
     /**
-     * @param x Entry to zigZag
+     * @param x Entry to zigZig
      */
     private void zigZig(Entry x){
-        zig(x.parent.parent);
-        zig(x.parent);
+        Entry y = x.left;
+        Entry z = x.left.left;
+
+        Entry D = x.right;
+        Entry C = y.right;
+        Entry A = z.left;
+        Entry B = z.right;
+
+        E temp = x.element;
+        x.element = z.element;
+        z.element = temp;
+
+        y.right = z;
+        x.right = y;
+
+        x.left = A;
+        y.left = B;
+        z.left = C;
+        z.right = D;
+
+        setParent(x, A);
+        setParent(y, B);
+        setParent(z, C);
+        setParent(z, D);
+    }
+
+
+    private void setParent(Entry parent, Entry child){
+
+        if(child != null){
+            child.parent = parent;
+        }
+
+
     }
     /**
      * @param x Entry to zagZag
      */
     private void zagZag(Entry x){
-        zag(x.parent.parent);
-        zag(x.parent);
+        Entry y = x.right;
+        Entry z = x.right.right;
+
+        Entry A = x.left;
+        Entry B = y.left;
+        Entry C = z.left;
+        Entry D = z.right;
+
+        E temp = x.element;
+        x.element = z.element;
+        z.element = temp;
+
+        y.left = z;
+        x.left = y;
+
+        x.right = D;
+        y.right = C;
+        z.right = B;
+        z.left = A;
+
+        setParent(x, D);
+        setParent(y, C);
+        setParent(z, B);
+        setParent(z, A);
     }
 
     // ========== ========== ========== ==========
