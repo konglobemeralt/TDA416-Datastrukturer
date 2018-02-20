@@ -127,7 +127,7 @@ public class SplayWithGet<E extends Comparable<? super E>>
     }
 
     /**
-     * @param x Entry to zigZig
+     * @param x grandParent Entry of Entry to zigZig
      */
     private void zigZig(Entry x){
         Entry y = x.left;
@@ -166,7 +166,7 @@ public class SplayWithGet<E extends Comparable<? super E>>
 
     }
     /**
-     * @param x Entry to zagZag
+     * @param x grandParent Entry of Entry to zagZagß
      */
     private void zagZag(Entry x){
         Entry y = x.right;
