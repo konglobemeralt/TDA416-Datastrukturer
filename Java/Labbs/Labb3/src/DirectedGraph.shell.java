@@ -1,3 +1,5 @@
+import java.util.Iterator;
+
 public class DirectedGraph {
 
 	public DirectedGraph(int noOfNodes) {
