@@ -1,6 +1,8 @@
 import java.security.InvalidParameterException;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.PriorityQueue;
 
 public class DirectedGraph<E extends Edge> {
 
@@ -34,7 +36,75 @@ public class DirectedGraph<E extends Edge> {
 		nodeArray[e.from].add(e);
 	}
 
+	private int getNumNodes() {
+		return nodeArray.length;
+	}
+
+	/**
+	 *
+	 * @param from Node to go from
+	 * @param to Node to go to
+	 * @return Edge going from 'from' to 'to'
+	 */
+	private E getEdge(int from, int to) {
+		Iterator<E> iterator = nodeArray[from].listIterator();
+		while(iterator.hasNext()) {
+			E next = iterator.next();
+			if(next.getDest() == to) {
+				return next;
+			}
+		}
+		return null;
+	}
+
+
+	/**
+	 * A way to convert from the road to edges
+	 * @param road DijkstraRoad to convert into its inner edges
+	 * @return A list of edges
+	 */
+	private ArrayList<E> convertDijkstraRoadToEdges(DijkstraRoad road) {
+		if(road == null) {
+			return null;
+		}
+		int previousNode = road.getNode();
+		ArrayList<E> edges = new ArrayList<>();
+		road = road.getRoad();
+
+		// The creation of edges is done backwards
+		while(road != null) {
+			edges.add(getEdge(road.getNode(), previousNode));
+			previousNode = road.getNode();
+			road = road.getRoad();
+		}
+
+		return edges;
+	}
+
 	public Iterator shortestPath(int from, int to) {
+		boolean[] visited = new boolean[getNumNodes()];
+		PriorityQueue<DijkstraRoad> priorityQueue = new PriorityQueue<>();
+
+		// Add first element
+		priorityQueue.add(new DijkstraRoad(from, 0, null));
+
+
+		while(priorityQueue.size() > 0) {
+			DijkstraRoad road = priorityQueue.poll();
+
+			if(visited[road.getNode()]) {
+				// If endpoint is reached, stop
+				if(road.getNode() == to) {
+					return convertDijkstraRoadToEdges(road).iterator();
+				}
+
+				visited[road.getNode()] = true;
+
+				//TODO implement rest of algorithm
+
+			}
+		}
+
 		return null;
 	}
 
