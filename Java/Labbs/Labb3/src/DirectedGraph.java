@@ -1,6 +1,6 @@
 import java.util.Iterator;
 
-public class DirectedGraph {
+public class DirectedGraph<E> {
 
 	public DirectedGraph(int noOfNodes) {
 		;
