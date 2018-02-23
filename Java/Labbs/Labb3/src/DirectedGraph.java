@@ -3,7 +3,7 @@ import java.util.*;
 
 public class DirectedGraph<E extends Edge> {
 
-	private LinkedList<E>[] nodeArray;
+	private List<E>[] nodeArray;
 
 	public DirectedGraph(int noOfNodes) {
 		if(noOfNodes <= 0) {
@@ -110,8 +110,6 @@ public class DirectedGraph<E extends Edge> {
 				}
 			}
 		}
-
-		System.out.println("RETURNING NULL!!!!!!!");
 		return null;
 	}
 
