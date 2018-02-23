@@ -114,7 +114,50 @@ public class DirectedGraph<E extends Edge> {
 	}
 
 	public Iterator minimumSpanningTree() {
-		return null;
+		List<E>[] cc = new LinkedList[getNumNodes()];
+
+		// Fill array with LinkedLists
+		for(int i = 0; i < getNumNodes(); i++) {
+			cc[i] = new LinkedList<E>();
+		}
+
+		PriorityQueue<E> priorityQueue = new PriorityQueue<>(new Comparator<E>() {
+			@Override
+			public int compare(E o1, E o2) {
+				if(o1 == null || o2 == null) {
+					throw new NullPointerException("Can't compare with null");
+				}
+				if(o1.getWeight() > o2.getWeight()) {
+					return 1;
+				}else if(o1.getWeight() < o2.getWeight()) {
+					return -1;
+				}else {
+					return 0;
+				}
+			}
+		});
+
+		// Add to priority queue from nodeArray
+		for(int i = 0; i < nodeArray.length; i++) {
+			priorityQueue.addAll(getNeighboursOfNode(i));
+		}
+
+		while(!priorityQueue.isEmpty() && cc.length > 1) {
+			E edge = priorityQueue.poll();
+
+			if(cc[edge.from] != cc[edge.to]) {
+				if(cc[edge.from].size() < cc[edge.to].size()) {
+					cc[edge.to].addAll(cc[edge.from]);
+					cc[edge.from] = cc[edge.to];
+					cc[edge.to].add(edge);
+				} else {
+					cc[edge.from].addAll(cc[edge.to]);
+					cc[edge.to] = cc[edge.from]; //TODO CHECK LOGIC
+					cc[edge.from].add(edge);
+				}
+			}
+		}
+		return cc[0].iterator();
 	}
 
 }
