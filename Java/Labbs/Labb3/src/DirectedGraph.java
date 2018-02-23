@@ -127,6 +127,7 @@ public class DirectedGraph<E extends Edge> {
 				if(o1 == null || o2 == null) {
 					throw new NullPointerException("Can't compare with null");
 				}
+				System.out.println("COMPARE MAN!");
 				if(o1.getWeight() > o2.getWeight()) {
 					return 1;
 				}else if(o1.getWeight() < o2.getWeight()) {
