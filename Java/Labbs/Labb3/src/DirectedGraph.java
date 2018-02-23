@@ -1,8 +1,5 @@
 import java.security.InvalidParameterException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class DirectedGraph<E extends Edge> {
 
@@ -19,19 +16,22 @@ public class DirectedGraph<E extends Edge> {
 		for(int i = 0; i < noOfNodes; i++) {
 			nodeArray[i] = new LinkedList<E>();
 		}
+	}
 
-
+	private List<E> getNeighboursOfNode(int node) {
+		return nodeArray[node];
 	}
 
 	public void addEdge(E e) {
 		if(e == null) {
 			throw new NullPointerException("Edge can't be null");
 		}
-		if(e.to < 0|| e.from < 0 | e.to >= nodeArray.length | e.from >= e.to) {
-			throw new InvalidParameterException("Edge is referencing to node not in the graph");
+		if(e.to < 0|| e.from < 0 || e.to >= nodeArray.length || e.from >= nodeArray.length ) {
+			throw new InvalidParameterException("Edge" + e.toString() + " is referencing to node not in the graph with size: " + getNumNodes());
 		}
 		if(nodeArray[e.from].contains(e)) {
-			throw new InvalidParameterException("Edge is already in graph");
+//TODO			throw new InvalidParameterException("Edge " + e.toString() +" is already in graph with size " + getNumNodes());
+			return;
 		}
 		nodeArray[e.from].add(e);
 	}
@@ -69,8 +69,8 @@ public class DirectedGraph<E extends Edge> {
 		}
 		int previousNode = road.getNode();
 		ArrayList<E> edges = new ArrayList<>();
-		road = road.getRoad();
 
+		road = road.getRoad();
 		// The creation of edges is done backwards
 		while(road != null) {
 			edges.add(getEdge(road.getNode(), previousNode));
@@ -78,6 +78,8 @@ public class DirectedGraph<E extends Edge> {
 			road = road.getRoad();
 		}
 
+		// Return reversed road
+		Collections.reverse(edges);
 		return edges;
 	}
 
@@ -92,7 +94,7 @@ public class DirectedGraph<E extends Edge> {
 		while(priorityQueue.size() > 0) {
 			DijkstraRoad road = priorityQueue.poll();
 
-			if(visited[road.getNode()]) {
+			if(!visited[road.getNode()]) {
 				// If endpoint is reached, stop
 				if(road.getNode() == to) {
 					return convertDijkstraRoadToEdges(road).iterator();
@@ -101,10 +103,15 @@ public class DirectedGraph<E extends Edge> {
 				visited[road.getNode()] = true;
 
 				//TODO implement rest of algorithm
-
+				for(E edge : getNeighboursOfNode(road.getNode())) {
+					if(!visited[edge.to]) {
+						priorityQueue.add(new DijkstraRoad(edge.to, edge.getWeight(), road));
+					}
+				}
 			}
 		}
 
+		System.out.println("RETURNING NULL!!!!!!!");
 		return null;
 	}
 
