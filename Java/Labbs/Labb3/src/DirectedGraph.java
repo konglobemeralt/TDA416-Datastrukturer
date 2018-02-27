@@ -51,7 +51,6 @@ public class DirectedGraph<E extends Edge> {
 		Iterator<E> iterator = nodeArray[from].listIterator();
 		while(iterator.hasNext()) {
 			E next = iterator.next();
-//			System.out.println("Finding " + weight + "  found " + next.getWeight());
 			if(next.getDest() == to && next.getWeight() == weight) {
 				return next;
 			}
@@ -92,6 +91,7 @@ public class DirectedGraph<E extends Edge> {
 
 	public Iterator minimumSpanningTree() {
 		List<E>[] cc = new LinkedList[getNumNodes()];
+		int ccLength = cc.length;
 
 		// Fill array with LinkedLists
 		for(int i = 0; i < getNumNodes(); i++) {
@@ -115,26 +115,43 @@ public class DirectedGraph<E extends Edge> {
 		});
 
 		// Add to priority queue from nodeArray
-		for(int i = 0; i < nodeArray.length; i++) {
+		for(int i = 0; i < cc.length; i++) {
 			priorityQueue.addAll(getNeighboursOfNode(i));
 		}
 
-		while(!priorityQueue.isEmpty() && cc.length > 1) {
+		while(!priorityQueue.isEmpty() && ccLength > 1) {
 			E edge = priorityQueue.poll();
 
 			if(cc[edge.from] != cc[edge.to]) {
-				if(cc[edge.from].size() < cc[edge.to].size()) {
+				if(cc[edge.from].size() <= cc[edge.to].size()) {
 					cc[edge.to].addAll(cc[edge.from]);
+					for(int i = 0; i < cc.length; i++) {
+						if(cc[i] == cc[edge.from]) {
+							cc[i] = cc[edge.to];
+						}
+					}
 					cc[edge.from] = cc[edge.to];
 					cc[edge.to].add(edge);
 				} else {
 					cc[edge.from].addAll(cc[edge.to]);
-					cc[edge.to] = cc[edge.from]; //TODO CHECK LOGIC
+					for(int i = 0; i < cc.length; i++) {
+						if(cc[i] == cc[edge.to]) {
+							cc[i] = cc[edge.from];
+						}
+					}
+					cc[edge.to] = cc[edge.from];
 					cc[edge.from].add(edge);
 				}
+				ccLength--;
 			}
 		}
-		return cc[0].iterator();
+		System.out.println(Arrays.toString(cc));
+		for(int i = 0; i < cc.length; i++) {
+			if(cc[i].size() > 0) {
+				System.out.println("cc[" + i + "] has size: " + cc[i].size());
+			}
+		}
+		return cc[1].iterator();
 	}
 
 }
