@@ -30,7 +30,7 @@ public class DrawGraph extends JFrame {
 	public enum Layer{BASE, OVERLAY};
 	
 	public DrawGraph() {
-		this(1300, 750); // passar bra för vårt linjenät
+		this(1100, 600); // passar bra för vårt linjenät
 	}
 	
 	public DrawGraph(int width, int height) {
@@ -52,8 +52,8 @@ public class DrawGraph extends JFrame {
 	}
 	
 	public void drawString(String text, int x, int y, Layer l) {
-		x = scaleX(x)+10;
-		y = scaleY(y)-10;
+		x = scaleX(x)+5;
+		y = scaleY(y)-5;
 		JLabel newLabel = new JLabel(text);
 		newLabel.setSize(150, 18);
 		newLabel.setLocation(x, y);
@@ -85,11 +85,11 @@ public class DrawGraph extends JFrame {
 	}
 	
 	private int scaleX(int x) {
-		return (int)(x*4)+10;
+		return (int)(x*3)+10;
 	}
 	
 	private int scaleY(int y) {
-		return (int)(y*1.5) + 11;
+		return (int)(y*1.15) + 11;
 	}
 	
 	//Fixing repainting of paths and nodes.
