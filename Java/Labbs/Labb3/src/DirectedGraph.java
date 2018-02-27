@@ -60,39 +60,12 @@ public class DirectedGraph<E extends Edge> {
 	}
 
 
-	/**
-	 * A way to convert from the road to edges
-	 * @param road DijkstraRoad to convert into its inner edges
-	 * @return A list of edges
-	 */
-	private ArrayList<E> convertDijkstraRoadToEdges(DijkstraRoad road) {
-		if(road == null) {
-			return null;
-		}
-		int previousNode = road.getNode();
-		double prevWeight = road.getInternalWeight();
-		ArrayList<E> edges = new ArrayList<>();
-
-		road = road.getRoad();
-		// The creation of edges is done backwards
-		while(road != null) {
-			edges.add(getEdge(road.getNode(), previousNode, prevWeight));
-			previousNode = road.getNode();
-			prevWeight = road.getInternalWeight();
-			road = road.getRoad();
-		}
-
-		// Return reversed road
-		Collections.reverse(edges);
-		return edges;
-	}
-
 	public Iterator shortestPath(int from, int to) {
 		boolean[] visited = new boolean[getNumNodes()];
 		PriorityQueue<DijkstraRoad> priorityQueue = new PriorityQueue<>();
 
 		// Add first element
-		priorityQueue.add(new DijkstraRoad(from, 0, null));
+		priorityQueue.add(new DijkstraRoad(from, null, null));
 
 
 		while(priorityQueue.size() > 0) {
@@ -101,7 +74,7 @@ public class DirectedGraph<E extends Edge> {
 			if(!visited[road.getNode()]) {
 				// If endpoint is reached, stop
 				if(road.getNode() == to) {
-					return convertDijkstraRoadToEdges(road).iterator();
+					return road.getEdges().iterator();
 				}
 
 				visited[road.getNode()] = true;
@@ -109,7 +82,7 @@ public class DirectedGraph<E extends Edge> {
 				//TODO implement rest of algorithm
 				for(E edge : getNeighboursOfNode(road.getNode())) {
 					if(!visited[edge.to]) {
-						priorityQueue.add(new DijkstraRoad(edge.to, edge.getWeight(), road));
+						priorityQueue.add(new DijkstraRoad(edge.to, edge, road));
 					}
 				}
 			}
