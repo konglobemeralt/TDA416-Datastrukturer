@@ -2,6 +2,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Data element representing a road consisting of a number of edges in a graph.
+ * Each instance repesents one section and has a connection to a previous node.
+ */
+
 public class DijkstraRoad<E extends Edge> implements Comparable<DijkstraRoad> {
 
 
@@ -33,6 +38,9 @@ public class DijkstraRoad<E extends Edge> implements Comparable<DijkstraRoad> {
 		return getInternalWeight();
 	}
 
+	/**
+	 * @return get weight of edge connecting to recent node. s
+	 */
 	public double getInternalWeight() {
 		if(edge == null) {
 			return 0;
@@ -51,10 +59,9 @@ public class DijkstraRoad<E extends Edge> implements Comparable<DijkstraRoad> {
 		}
 	}
 
-	public DijkstraRoad getRoad() {
-		return road;
-	}
-
+	/**
+	 * @return Gets the edges in natural order from start to finish.
+	 */
 	public  List<E> getEdges() {
 		List<E> edges = new ArrayList<E>();
 		addEdgesToList(edges);
