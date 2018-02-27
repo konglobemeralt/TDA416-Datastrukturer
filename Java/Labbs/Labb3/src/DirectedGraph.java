@@ -47,11 +47,12 @@ public class DirectedGraph<E extends Edge> {
 	 * @param to Node to go to
 	 * @return Edge going from 'from' to 'to'
 	 */
-	private E getEdge(int from, int to) {
+	private E getEdge(int from, int to, double weight) {
 		Iterator<E> iterator = nodeArray[from].listIterator();
 		while(iterator.hasNext()) {
 			E next = iterator.next();
-			if(next.getDest() == to) {
+//			System.out.println("Finding " + weight + "  found " + next.getWeight());
+			if(next.getDest() == to && next.getWeight() == weight) {
 				return next;
 			}
 		}
@@ -69,13 +70,15 @@ public class DirectedGraph<E extends Edge> {
 			return null;
 		}
 		int previousNode = road.getNode();
+		double prevWeight = road.getInternalWeight();
 		ArrayList<E> edges = new ArrayList<>();
 
 		road = road.getRoad();
 		// The creation of edges is done backwards
 		while(road != null) {
-			edges.add(getEdge(road.getNode(), previousNode));
+			edges.add(getEdge(road.getNode(), previousNode, prevWeight));
 			previousNode = road.getNode();
+			prevWeight = road.getInternalWeight();
 			road = road.getRoad();
 		}
 

@@ -25,6 +25,10 @@ public class DijkstraRoad implements Comparable<DijkstraRoad> {
 		return weight;
 	}
 
+	public double getInternalWeight() {
+		return weight;
+	}
+
 	@Override
 	public int compareTo(DijkstraRoad otherRoad) {
 		if(getWeight() > otherRoad.getWeight()) {
