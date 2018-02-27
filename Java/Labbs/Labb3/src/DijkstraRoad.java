@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
 /**
  * Data element representing a road consisting of a number of edges in a graph.
  * Each instance repesents one section and has a connection to a previous node.
