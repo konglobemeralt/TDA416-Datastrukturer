@@ -10,12 +10,7 @@ public class DirectedGraph<E extends Edge> {
 			throw  new InvalidParameterException("Amount of nodes has to be larger than 0: is " + noOfNodes);
 		}
 
-		nodeArray = new LinkedList[noOfNodes];
-
-		// Fill array with LinkedLists
-		for(int i = 0; i < noOfNodes; i++) {
-			nodeArray[i] = new LinkedList<E>();
-		}
+		nodeArray = createListArray(noOfNodes);
 	}
 
 	private List<E> getNeighboursOfNode(int node) {
@@ -28,11 +23,6 @@ public class DirectedGraph<E extends Edge> {
 		}
 		if(e.to < 0|| e.from < 0 || e.to >= nodeArray.length || e.from >= nodeArray.length ) {
 			throw new InvalidParameterException("Edge" + e.toString() + " is referencing to node not in the graph with size: " + getNumNodes());
-		}
-		if(nodeArray[e.from].contains(e)) {
-//TODO			throw new InvalidParameterException("Edge " + e.toString() +" is already in graph with size " + getNumNodes());
-//			return;
-			System.out.println("Adding duplicate edge: " + e.toString());
 		}
 		nodeArray[e.from].add(e);
 	}
@@ -47,16 +37,6 @@ public class DirectedGraph<E extends Edge> {
 	 * @param to Node to go to
 	 * @return Edge going from 'from' to 'to'
 	 */
-	private E getEdge(int from, int to, double weight) {
-		Iterator<E> iterator = nodeArray[from].listIterator();
-		while(iterator.hasNext()) {
-			E next = iterator.next();
-			if(next.getDest() == to && next.getWeight() == weight) {
-				return next;
-			}
-		}
-		return null;
-	}
 
 
 	public Iterator shortestPath(int from, int to) {
@@ -78,7 +58,6 @@ public class DirectedGraph<E extends Edge> {
 
 				visited[road.getNode()] = true;
 
-				//TODO implement rest of algorithm
 				for(E edge : getNeighboursOfNode(road.getNode())) {
 					if(!visited[edge.to]) {
 						priorityQueue.add(new CompDijkstraPath(edge.to, edge, road));
@@ -117,6 +96,11 @@ public class DirectedGraph<E extends Edge> {
 		return cc[0].iterator();
 	}
 
+	/**
+	 * Creates a LinkedList<E>[] array, fills it with empty lists and returns it as a List<E>[]
+	 * @param length of array to create
+	 * @return filled List<E>
+	 */
 	private List<E>[] createListArray(int length) {
 		List<E>[] listArray = new LinkedList[length];
 		for(int i = 0; i < length; i++) {
@@ -125,6 +109,11 @@ public class DirectedGraph<E extends Edge> {
 		return listArray;
 	}
 
+	/**
+	 * @param cc cc array containing lists
+	 * @param from node to move all edges from
+	 * @param to node to move all edges to
+	 */
 	private void mergeCCNodes(List<E> cc[], int from, int to) {
 		cc[from].addAll(cc[to]);
 		List<E> toChange = cc[to];
