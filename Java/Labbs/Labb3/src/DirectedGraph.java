@@ -90,13 +90,8 @@ public class DirectedGraph<E extends Edge> {
 	}
 
 	public Iterator minimumSpanningTree() {
-		List<E>[] cc = new LinkedList[getNumNodes()];
+		List<E>[] cc = createListArray(getNumNodes());
 		int ccLength = cc.length;
-
-		// Fill array with LinkedLists
-		for(int i = 0; i < getNumNodes(); i++) {
-			cc[i] = new LinkedList<E>();
-		}
 
 		PriorityQueue<E> priorityQueue = new PriorityQueue<>(new CompKruskalEdge<E>());
 
@@ -110,36 +105,35 @@ public class DirectedGraph<E extends Edge> {
 
 			if(cc[edge.from] != cc[edge.to]) {
 				if(cc[edge.from].size() <= cc[edge.to].size()) {
-					cc[edge.to].addAll(cc[edge.from]);
-					List<E> toChange = cc[edge.from];
-					for(int i = 0; i < cc.length; i++) {
-						if(cc[i] == toChange) {
-							cc[i] = cc[edge.to];
-						}
-					}
-					cc[edge.from] = cc[edge.to];
 					cc[edge.to].add(edge);
+					mergeCCNodes(cc, edge.from, edge.to);
 				} else {
-					cc[edge.from].addAll(cc[edge.to]);
-					List<E> toChange = cc[edge.to];
-					for(int i = 0; i < cc.length; i++) {
-						if(cc[i] == toChange) {
-							cc[i] = cc[edge.from];
-						}
-					}
-					cc[edge.to] = cc[edge.from];
 					cc[edge.from].add(edge);
+					mergeCCNodes(cc, edge.to, edge.from);
 				}
 				ccLength--;
 			}
 		}
-		System.out.println(Arrays.toString(cc));
+		return cc[0].iterator();
+	}
+
+	private List<E>[] createListArray(int length) {
+		List<E>[] listArray = new LinkedList[length];
+		for(int i = 0; i < length; i++) {
+			listArray[i] = new LinkedList<E>();
+		}
+		return listArray;
+	}
+
+	private void mergeCCNodes(List<E> cc[], int from, int to) {
+		cc[from].addAll(cc[to]);
+		List<E> toChange = cc[to];
 		for(int i = 0; i < cc.length; i++) {
-			if(cc[i].size() > 0) {
-				System.out.println("cc[" + i + "] has size: " + cc[i].size());
+			if(cc[i] == toChange) {
+				cc[i] = cc[from];
 			}
 		}
-		return cc[1].iterator();
+		cc[to] = cc[from];
 	}
 
 }
