@@ -125,8 +125,9 @@ public class DirectedGraph<E extends Edge> {
 			if(cc[edge.from] != cc[edge.to]) {
 				if(cc[edge.from].size() <= cc[edge.to].size()) {
 					cc[edge.to].addAll(cc[edge.from]);
+					List<E> toChange = cc[edge.from];
 					for(int i = 0; i < cc.length; i++) {
-						if(cc[i] == cc[edge.from]) {
+						if(cc[i] == toChange) {
 							cc[i] = cc[edge.to];
 						}
 					}
@@ -134,8 +135,9 @@ public class DirectedGraph<E extends Edge> {
 					cc[edge.to].add(edge);
 				} else {
 					cc[edge.from].addAll(cc[edge.to]);
+					List<E> toChange = cc[edge.to];
 					for(int i = 0; i < cc.length; i++) {
-						if(cc[i] == cc[edge.to]) {
+						if(cc[i] == toChange) {
 							cc[i] = cc[edge.from];
 						}
 					}
