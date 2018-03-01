@@ -98,21 +98,7 @@ public class DirectedGraph<E extends Edge> {
 			cc[i] = new LinkedList<E>();
 		}
 
-		PriorityQueue<E> priorityQueue = new PriorityQueue<>(new Comparator<E>() {
-			@Override
-			public int compare(E o1, E o2) {
-				if(o1 == null || o2 == null) {
-					throw new NullPointerException("Can't compare with null");
-				}
-				if(o1.getWeight() > o2.getWeight()) {
-					return 1;
-				}else if(o1.getWeight() < o2.getWeight()) {
-					return -1;
-				}else {
-					return 0;
-				}
-			}
-		});
+		PriorityQueue<E> priorityQueue = new PriorityQueue<>(new CompKruskalEdge<E>());
 
 		// Add to priority queue from nodeArray
 		for(int i = 0; i < cc.length; i++) {
