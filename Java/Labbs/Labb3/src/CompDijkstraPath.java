@@ -2,25 +2,25 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 /**
- * Data element representing a road consisting of a number of edges in a graph.
+ * Data element representing a path consisting of a number of edges in a graph.
  * Each instance repesents one section and has a connection to a previous node.
  */
 
-public class DijkstraRoad<E extends Edge> implements Comparable<DijkstraRoad> {
+public class CompDijkstraPath<E extends Edge> implements Comparable<CompDijkstraPath> {
 
 
 	private final E edge;
-	private final DijkstraRoad road;
+	private final CompDijkstraPath path;
 	private final int node;
 
-	public DijkstraRoad(int node, E edge, DijkstraRoad road) {
+	public CompDijkstraPath(int node, E edge, CompDijkstraPath path) {
 		this.node = node;
 		this.edge = edge;
-		this.road = road;
+		this.path = path;
 	}
 
 	/**
-	 * @return node which this road goes to
+	 * @return node which this path goes to
 	 */
 	public int getNode() {
 		return node;
@@ -31,8 +31,8 @@ public class DijkstraRoad<E extends Edge> implements Comparable<DijkstraRoad> {
 	 * @return total weight
 	 */
 	public double getTotalWeight() {
-		if(road != null) {
-			return edge.getWeight() + road.getTotalWeight();
+		if(path != null) {
+			return edge.getWeight() + path.getTotalWeight();
 		}
 		return getInternalWeight();
 	}
@@ -48,7 +48,7 @@ public class DijkstraRoad<E extends Edge> implements Comparable<DijkstraRoad> {
 	}
 
 	@Override
-	public int compareTo(DijkstraRoad otherRoad) {
+	public int compareTo(CompDijkstraPath otherRoad) {
 		if(getTotalWeight() > otherRoad.getTotalWeight()) {
 			return 1;
 		}else if(getTotalWeight() < otherRoad.getTotalWeight()) {
@@ -73,8 +73,8 @@ public class DijkstraRoad<E extends Edge> implements Comparable<DijkstraRoad> {
 			return;
 		}
 		list.add(edge);
-		if(road != null) {
-			road.addEdgesToList(list);
+		if(path != null) {
+			path.addEdgesToList(list);
 		}
 	}
 }

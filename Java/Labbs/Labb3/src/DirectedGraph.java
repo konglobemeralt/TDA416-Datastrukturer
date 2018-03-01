@@ -61,14 +61,14 @@ public class DirectedGraph<E extends Edge> {
 
 	public Iterator shortestPath(int from, int to) {
 		boolean[] visited = new boolean[getNumNodes()];
-		PriorityQueue<DijkstraRoad> priorityQueue = new PriorityQueue<>();
+		PriorityQueue<CompDijkstraPath> priorityQueue = new PriorityQueue<>();
 
 		// Add first element
-		priorityQueue.add(new DijkstraRoad(from, null, null));
+		priorityQueue.add(new CompDijkstraPath(from, null, null));
 
 
 		while(priorityQueue.size() > 0) {
-			DijkstraRoad road = priorityQueue.poll();
+			CompDijkstraPath road = priorityQueue.poll();
 
 			if(!visited[road.getNode()]) {
 				// If endpoint is reached, stop
@@ -81,7 +81,7 @@ public class DirectedGraph<E extends Edge> {
 				//TODO implement rest of algorithm
 				for(E edge : getNeighboursOfNode(road.getNode())) {
 					if(!visited[edge.to]) {
-						priorityQueue.add(new DijkstraRoad(edge.to, edge, road));
+						priorityQueue.add(new CompDijkstraPath(edge.to, edge, road));
 					}
 				}
 			}
